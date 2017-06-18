@@ -1,10 +1,14 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+//Create and manage components
+import React from 'react';
+//Render components into the dom
+import ReactDOM from 'react-dom';
 // import { Provider } from 'react-redux';
 // import { createStore, applyMiddleware } from 'redux';
 
-// import App from './components/app';
+import App from './components/app';
 // import reducers from './reducers';
+
+import { API_KEY } from './secrets/secrets';
 
 // const createStoreWithMiddleware = applyMiddleware()(createStore);
 
@@ -14,6 +18,6 @@
 //   </Provider>
 //   , document.querySelector('.container'));
 
-const App = function() {
-  return <div>Hi You!!</div>
-};
+
+// ReactDOM.render(<App></App>, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.container'));
