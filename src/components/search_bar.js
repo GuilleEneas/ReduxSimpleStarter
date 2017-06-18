@@ -12,7 +12,7 @@ export default class SearchBar extends Component {
 			<div>
 				<input
 					value={this.state.term}
-					onChange={this.onInputChange} />
+					onChange={event => this.setState({ term: event.target.value })} />
 			</div>
 		);
 	}
@@ -22,7 +22,7 @@ export default class SearchBar extends Component {
 
 		// I can't acess this from here... why?
 
-		this.setState({ term: event.target.value });
+		// this.setState({ term: event.target.value });
 		// console.log('this has changed', event.target.value, this.state.term);
 		console.log('this has changed', event.target.value);
 	}
