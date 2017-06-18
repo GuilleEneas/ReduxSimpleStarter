@@ -8,8 +8,6 @@ import ReactDOM from 'react-dom';
 import App from './components/app';
 // import reducers from './reducers';
 
-import { API_KEY } from './secrets/secrets';
-
 // const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 // ReactDOM.render(
