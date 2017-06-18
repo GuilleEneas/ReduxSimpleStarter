@@ -15,22 +15,28 @@ export default class App extends Component {
 			videos: [],
 			selectedVideo: null
 		};
-		YTSearch({ key: API_KEY, term: 'surfboards' }, videos => {
-			this.setState({
-				videos,
-				selectedVideo: videos[0]
-			});
-		});
-	} 
+
+		this.queryVideos('surfboards');
+	}
+
 	render() {
 		return (
 			<div>
-				<SearchBar />
+				<SearchBar onNewTerm={term => this.queryVideos(term)}/>
 				<Video video={this.state.selectedVideo}/>
 				<VideoList
 					onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
 					videos={this.state.videos} />
 			</div>
 		);
+	}
+
+	queryVideos(term) {
+		YTSearch({ key: API_KEY, term }, videos => {
+			this.setState({
+				videos,
+				selectedVideo: videos[0]
+			});
+		});
 	}
 }

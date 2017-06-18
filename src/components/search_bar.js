@@ -5,6 +5,7 @@ export default class SearchBar extends Component {
 		super(props);
 
 		this.state = { term: '' };
+		// console.log('constructor', this);
 	}
 
 	render() {
@@ -12,18 +13,14 @@ export default class SearchBar extends Component {
 			<div className="search-bar">
 				<input
 					value={this.state.term}
-					onChange={event => this.setState({ term: event.target.value })} />
+					onChange={event => this.onInputChange(event)} />
 			</div>
 		);
 	}
 
 	onInputChange(event) {
-		// this.state.term = event.target.value;
-
-		// I can't acess this from here... why?
-
-		// this.setState({ term: event.target.value });
-		// console.log('this has changed', event.target.value, this.state.term);
-		console.log('this has changed', event.target.value);
+		// console.log('this has changed', event.target.value, this);
+		this.setState({ term: event.target.value });
+		this.props.onNewTerm(event.target.value);
 	}
 }
