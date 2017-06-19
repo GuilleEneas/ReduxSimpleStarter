@@ -6,10 +6,7 @@ export default class SearchBar extends Component {
 
 		this.state = { term: '' };
 
-		this.timeout = null;
-
 		this.onInputChange = this.onInputChange.bind(this);
-		// console.log('constructor', this);
 	}
 
 	render() {
@@ -26,11 +23,6 @@ export default class SearchBar extends Component {
 		// console.log('this has changed', event.target.value, this);
 		const term = event.target.value;
 		this.setState({ term });
-		if(this.timeout) {
-			clearTimeout(this.timeout);
-		}
-		this.timeout = setTimeout(() => {
-			this.props.onNewTerm(term);
-		}, 300);
+		this.props.onNewTerm(term);
 	}
 }
